@@ -48,16 +48,22 @@ const spy = new IntersectionObserver(es => es.forEach(e => {
 $$('section[id]').forEach(s => spy.observe(s));
 
 /* ---------- Revelação ao rolar (Reveal) ---------- */
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { 
-    e.target.classList.add('in'); 
-    io.unobserve(e.target); 
-  }
-}), { threshold: .08 });
+const reveals = $$('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { 
+      e.target.classList.add('in'); 
+      io.unobserve(e.target); 
+    }
+  }), { threshold: .05 });
 
-$$('.reveal').forEach(el => io.observe(el));
+  reveals.forEach(el => io.observe(el));
+} else {
+  // Fallback se o navegador não suportar o Observer
+  reveals.forEach(el => el.classList.add('in'));
+}
 
-/* ---------- Reação ao mouse (Com proteção para elemento nulo) ---------- */
+/* ---------- Reação ao mouse ---------- */
 const glow = $('#cursorGlow');
 if (glow && matchMedia('(hover:hover) and (pointer:fine)').matches) {
   let mx = 0, my = 0, gx = 0, gy = 0, hot = null, queued = false;
@@ -101,42 +107,7 @@ if (glow && matchMedia('(hover:hover) and (pointer:fine)').matches) {
   });
 }
 
-/* ---------- Modo leve automático ---------- */
-setTimeout(() => {
-  let n = 0, slow = 0, last = performance.now();
-  const probe = t => {
-    if (t - last > 28) slow++;
-    last = t;
-    if (++n < 100) requestAnimationFrame(probe);
-    else if (slow > 15) document.documentElement.classList.add('lite');
-  };
-  requestAnimationFrame(probe);
-}, 2000);
-
-/* ---------- Filtro do portfólio ---------- */
-const chips = $$('.chip'), works = $$('.work');
-chips.forEach(chip => chip.addEventListener('click', () => {
-  const f = chip.dataset.filter;
-  chips.forEach(c => { 
-    const on = c === chip; 
-    c.classList.toggle('active', on); 
-    c.setAttribute('aria-pressed', on); 
-  });
-  works.forEach(w => {
-    const show = f === 'all' || w.dataset.cat === f;
-    if (show) { 
-      w.classList.remove('is-gone', 'leaving'); 
-      w.classList.remove('entering'); 
-      void w.offsetWidth; 
-      w.classList.add('entering'); 
-    } else { 
-      w.classList.add('leaving'); 
-      setTimeout(() => w.classList.contains('leaving') && w.classList.add('is-gone'), 300); 
-    }
-  });
-}));
-
-/* ---------- Seção Processo: etapas interativas ---------- */
+/* ---------- Seção Processo ---------- */
 (() => {
   const root = document.getElementById('processo');
   if (!root) return;
@@ -194,7 +165,6 @@ chips.forEach(chip => chip.addEventListener('click', () => {
 
   function select(i) {
     if (i === current) return;
-    const first = current === -1; 
     current = i;
     const d = STEPS[i];
 
@@ -218,30 +188,11 @@ chips.forEach(chip => chip.addEventListener('click', () => {
     if ($('#procSub')) $('#procSub').textContent = d.subtext;
     if ($('#procIcon')) $('#procIcon').innerHTML = ICONS[d.icon] || '';
     if ($('#procList')) $('#procList').innerHTML = d.checkpoints.map(t => `<div>${ICONS.check}<span>${t}</span></div>`).join('');
-
-    if (!first) {
-      const txt = $('#procText');
-      const vis = root.querySelector('.proc-visual');
-      [txt, vis].forEach(el => { 
-        if (el) { 
-          el.classList.remove('proc-swap'); 
-          void el.offsetWidth; 
-          el.classList.add('proc-swap'); 
-        } 
-      });
-    }
   }
 
   root.addEventListener('click', e => { 
     const t = e.target.closest('[data-step]'); 
     if (t) select(+t.dataset.step); 
-  });
-  
-  root.addEventListener('keydown', e => {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.proc-card')) { 
-      e.preventDefault(); 
-      select(+e.target.dataset.step); 
-    }
   });
 
   select(0);
