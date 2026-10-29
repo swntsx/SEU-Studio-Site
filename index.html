@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark scroll-smooth">
 <head>
@@ -6,18 +7,18 @@
   <title>SEU Studio - Design & Vídeo</title>
 
   <!-- Favicon: ícone exibido na aba do navegador -->
-  <link rel="icon" type="image/png" href="/imagem/Icone-S-gradient.png">
+  <link rel="icon" type="image/png" href="imagem/Icone S gradient.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Estilos customizados -->
-  <link rel="stylesheet" href="./css/style.css">
+  <!-- Estilos customizados (antes do Tailwind: as utilities continuam mandando, como antes) -->
+  <link rel="stylesheet" href="css/style.css">
 
-  <!-- Tailwind compilado -->
-  <link rel="stylesheet" href="./css/tailwind.css">
+  <!-- Tailwind compilado (sem CDN = bem mais rápido) -->
+  <link rel="stylesheet" href="css/tailwind.css">
 </head>
 <body class="bg-[#06060c] text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
 
@@ -26,27 +27,32 @@
     <div class="blob blob-1 absolute -top-40 left-1/4 w-[600px] h-[600px]"></div>
     <div class="blob blob-2 absolute top-1/3 -right-20 w-[500px] h-[500px]" style="animation-delay: -8s;"></div>
     <div class="blob blob-3 absolute -bottom-40 left-1/3 w-[650px] h-[650px]" style="animation-delay: -16s;"></div>
+    <!-- Subtle Grid Overlay -->
     <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293708_1px,transparent_1px),linear-gradient(to_bottom,#1f293708_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]"></div>
   </div>
 
   <!-- CONTAINER FLUTUANTE NO CANTO INFERIOR DIREITO (WHATSAPP WIDGET) -->
   <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <!-- Balão de Mensagem Clicável -->
     <a 
       href="https://wa.me/556294847384?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento!" 
       target="_blank" 
       rel="noopener noreferrer"
       class="hidden sm:flex items-center gap-3 glass-panel px-4 py-2.5 rounded-2xl shadow-2xl transition-all duration-300 hover:scale-105 hover:border-pink-500/50 group cursor-pointer"
     >
+      <!-- Avatar / Imagem Personalizada -->
       <div class="relative flex-shrink-0">
         <img 
-          src="./imagem/icon-whats.jpg" 
+          src="imagem/icon whats.jpg" 
           alt="Designer Gráfico" 
           class="w-9 h-9 rounded-full object-cover border border-white/20"
           onerror="this.src='https://placehold.co/100x100/311b92/ffffff/png?text=RS'"
         />
+        <!-- Indicador de Status Online -->
         <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full ring-2 ring-[#06060c]"></span>
       </div>
 
+      <!-- Texto do Balão -->
       <div class="text-xs">
         <p class="font-medium text-white group-hover:text-pink-400 transition-colors">
           Olá! Precisa de ajuda?
@@ -55,6 +61,7 @@
       </div>
     </a>
 
+    <!-- Botão Principal de Ação (Abre o WhatsApp diretamente) -->
     <a 
       href="https://wa.me/556294847384?text=Olá,%20vim%20pelo%20Site!" 
       target="_blank" 
@@ -62,6 +69,7 @@
       aria-label="Falar no WhatsApp"
       class="relative flex items-center justify-center w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full shadow-lg shadow-pink-500/25 hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 active:scale-95"
     >
+      <!-- Ícone SVG do WhatsApp -->
       <svg class="w-7 h-7 text-white fill-current" viewBox="0 0 24 24">
         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
       </svg>
@@ -72,15 +80,17 @@
   <header id="siteHeader" class="sticky top-0 z-50 transition-all duration-300 py-3 sm:py-4 px-4 sm:px-8">
     <div class="max-w-7xl mx-auto glass-panel rounded-full px-6 py-3 flex items-center justify-between border border-white/10 shadow-2xl">
       
+      <!-- Logo "SEU Studio" -->
       <a href="#inicio" class="flex items-center group" aria-label="SEU Studio - início">
         <img 
-          src="./imagem/nav-tittle-gradient-purpinky.png" 
+          src="imagem/nav tittle gradient purpinky.png" 
           alt="SEU Studio" 
           class="h-8 sm:h-10 w-auto group-hover:scale-105 transition-transform duration-300"
-          onerror="this.onerror=null; this.parentNode.innerHTML='<span class=\'font-heading font-extrabold text-xl tracking-tight text-white\'>SEU<span class=\'text-gradient-glow ml-1\'>STUDIO</span></span>';"
+          onerror="this.onerror=null; this.parentNode.innerHTML='&lt;span class=&quot;font-heading font-extrabold text-xl tracking-tight text-white&quot;&gt;SEU&lt;span class=&quot;text-gradient-glow ml-1&quot;&gt;STUDIO&lt;/span&gt;&lt;/span&gt;';"
         >
       </a>
 
+      <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
         <a href="#servicos" class="nav-link hover:text-white transition-colors">Serviços</a>
         <a href="#portfolio" class="nav-link hover:text-white transition-colors">Portfólio</a>
@@ -89,6 +99,7 @@
         <a href="#processo" class="nav-link hover:text-white transition-colors">Processo</a>
       </nav>
 
+      <!-- Ghost / Outline CTA Button -->
       <div class="flex items-center gap-3">
         <a href="#contato" class="hidden sm:inline-flex px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border border-purple-500/40 text-purple-200 hover:text-white hover:border-purple-400 hover:bg-purple-500/10 transition-all focus:outline-none shadow-sm">
           Fale conosco
@@ -115,23 +126,30 @@
   </nav>
   <div id="cursorGlow" aria-hidden="true"></div>
 
-  <!-- MAIN / HERO -->
+  <!-- HERO SECTION -->
   <main id="inicio" class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-12 lg:py-24 flex-1 flex items-center">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+      
+      <!-- LEFT CONTENT COLUMN -->
       <div class="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
+        
+        <!-- Pill / Badge Tag -->
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-purple-500/30 text-xs font-semibold text-purple-300 animate-float-slow">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>Pacote teste para novos clientes</span>
         </div>
 
+        <!-- Título principal -->
         <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.12] tracking-tight">
           Design e vídeo para sua empresa,<br class="hidden sm:inline"> sem contratar um <span class="text-gradient-glow">designer interno.</span>
         </h1>
 
+        <!-- Subtitle -->
         <p class="text-base sm:text-lg text-slate-400 max-w-2xl font-normal leading-relaxed">
           Artes, identidade visual, sites, edição de vídeo e gestão de redes sociais em um só lugar, com planos mensais e preço claro.
         </p>
 
+        <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto">
           <a href="#contato" class="btn-gradient px-8 py-4 rounded-full font-bold text-white text-center text-base shadow-xl shadow-purple-600/30 flex items-center justify-center gap-2 group">
             <span>Peça um orçamento</span>
@@ -144,10 +162,11 @@
           </a>
         </div>
 
+        <!-- Social Proof Metrics -->
         <div class="pt-6 border-t border-white/10 w-full flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-slate-400">
           <div class="flex items-center gap-2">
             <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 0-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             <span>Sem fidelidade obrigatória</span>
           </div>
@@ -161,8 +180,13 @@
 
       </div>
 
+      <!-- RIGHT MOCKUP COLUMN -->
       <div class="lg:col-span-5 relative flex justify-center items-center mt-6 lg:mt-0 pb-8 px-1">
+        
+        <!-- MAIN DASHBOARD WINDOW -->
         <div class="w-full max-w-md glass-panel rounded-3xl p-5 border border-white/15 shadow-2xl relative z-10 animate-float-slow">
+          
+          <!-- Window Controls Header -->
           <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
             <div class="flex items-center gap-2">
               <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
@@ -172,14 +196,20 @@
             <span class="text-[11px] font-mono text-slate-400 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full border border-white/5">seustudio.app</span>
           </div>
 
+          <!-- 3D Cubes Visual Mockup -->
           <div class="glass-card rounded-2xl p-8 flex flex-col items-center justify-center border border-white/10 relative overflow-hidden group">
+            
+            <!-- Isometric Cubes Canvas Simulation -->
             <div class="relative w-40 h-36 flex items-center justify-center mb-4">
+              <!-- Cube 1 Top -->
               <div class="absolute top-2 w-12 h-12 bg-purple-600 rounded-lg transform rotate-45 skew-x-12 flex items-center justify-center shadow-lg border border-purple-400/40">
                 <span class="transform -rotate-45 font-bold text-white text-xs">S</span>
               </div>
+              <!-- Cube 2 Left -->
               <div class="absolute bottom-4 left-4 w-12 h-12 bg-pink-600 rounded-lg transform rotate-45 -skew-y-12 flex items-center justify-center shadow-lg border border-pink-400/40">
                 <span class="transform -rotate-45 font-bold text-white text-xs">U</span>
               </div>
+              <!-- Cube 3 Right -->
               <div class="absolute bottom-4 right-4 w-12 h-12 bg-indigo-600 rounded-lg transform rotate-45 skew-y-12 flex items-center justify-center shadow-lg border border-indigo-400/40">
                 <span class="transform -rotate-45 font-bold text-white text-xs">E</span>
               </div>
@@ -187,8 +217,10 @@
 
             <p class="text-xs font-bold tracking-widest text-slate-200 uppercase mt-2">Branding & Design System</p>
           </div>
+
         </div>
 
+        <!-- FLOATING MINI CARD -->
         <div class="absolute -bottom-2 sm:-bottom-6 left-0 z-30 glass-panel border border-purple-500/30 rounded-2xl p-4 shadow-2xl flex items-center gap-3 animate-float-reverse">
           <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white shrink-0 shadow-md">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -201,10 +233,12 @@
           </div>
         </div>
 
+        <!-- OVERLAY SMARTPHONE FRAME -->
         <div class="absolute -right-2 sm:-right-6 top-8 z-20 w-32 sm:w-56 bg-slate-950/90 border-4 border-slate-800 rounded-[2.5rem] p-2 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
           <div class="w-16 h-3 bg-slate-800 rounded-full mx-auto mb-2"></div>
           
           <div class="bg-gradient-to-b from-purple-900/60 via-pink-900/40 to-slate-950 rounded-[1.8rem] aspect-[9/16] flex flex-col justify-between p-3 relative overflow-hidden group">
+            
             <div class="flex justify-between items-center z-10">
               <span class="bg-black/50 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full backdrop-blur-sm">Reel Edit</span>
               <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
@@ -225,11 +259,430 @@
                 <span>00:30</span>
               </div>
             </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <div class="relative z-10 w-full">
+
+    <!-- SERVIÇOS SECTION -->
+    <section id="servicos" class="py-24 section-divider reveal">
+      <div class="max-w-5xl mx-auto px-5 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <h2 class="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            Escolha oque <span class="text-gradient-glow">você precisa</span>
+          </h2>
+          <p class="mt-3 sm:mt-4 text-base sm:text-lg text-slate-400">
+            Frentes de trabalho para sua marca aparecer bem em qualquer lugar.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="btn-gradient rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden group">
+            <h3 class="font-heading text-2xl font-bold">Design gráfico</h3>
+            <p class="mt-3 text-white/90 leading-relaxed text-sm">
+              Identidade visual, artes para redes, banners, cardápios, catálogos, apresentações e materiais impressos.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">Logos</span>
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">Cardápios</span>
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">Catálogos</span>
+            </div>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8">
+            <h3 class="font-heading text-2xl font-bold text-white">Web design e UI/UX</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed text-sm">
+              Sites e páginas de bio pensados para converter visitas em contatos com alta velocidade.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300">Sites</span>
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300">Página de bio</span>
+            </div>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8">
+            <h3 class="font-heading text-2xl font-bold text-white">Edição de vídeo e imagem</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed text-sm">
+              Reels, vídeos institucionais e tratamento de fotos, com captação quando você precisar.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300">Reels</span>
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300">Vídeos institucionais</span>
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300">Tratamento</span>
+            </div>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8">
+            <h3 class="font-heading text-2xl font-bold text-white">Social media e gestão de redes</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed text-sm">
+              Planejamento, criação e publicação de conteúdo em pacotes mensais para empresas e autônomos.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300">Pacote teste</span>
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300">Pacote recorrente</span>
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300">Valor por arte</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-16 text-center">
+          <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-6">Atendemos negócios de diversos setores</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <span class="px-5 py-2 rounded-full glass-card text-sm text-slate-300">Restaurantes</span>
+            <span class="px-5 py-2 rounded-full glass-card text-sm text-slate-300">Clínicas</span>
+            <span class="px-5 py-2 rounded-full glass-card text-sm text-slate-300">Lojas</span>
+            <span class="px-5 py-2 rounded-full glass-card text-sm text-slate-300">Autônomos</span>
+            <span class="px-5 py-2 rounded-full glass-card text-sm text-slate-300">Startups</span>
+            <span class="px-5 py-2 rounded-full glass-card text-sm text-slate-300">Escritórios</span>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </section>
+
+    <!-- PORTFÓLIO SECTION -->
+    <section id="portfolio" class="py-24 section-divider reveal">
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h2 class="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-white">Trabalhos que <span class="text-gradient-glow">chamam atenção</span></h2>
+          <p class="mt-4 text-slate-400">Filtre por tipo de serviço e veja exemplos do que entregamos.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2.5 mb-10" role="group" aria-label="Filtrar portfólio">
+          <button type="button" class="chip active" data-filter="all" aria-pressed="true">Todos</button>
+          <button type="button" class="chip" data-filter="design" aria-pressed="false">Design</button>
+          <button type="button" class="chip" data-filter="web" aria-pressed="false">Web & UI/UX</button>
+          <button type="button" class="chip" data-filter="video" aria-pressed="false">Vídeo</button>
+          <button type="button" class="chip" data-filter="social" aria-pressed="false">Social media</button>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="work glass-card rounded-3xl p-4" data-cat="design">
+            <div class="thumb" style="--a:#a855f7;--b:#ec4899"><span>Ca</span></div>
+            <div class="px-2 pt-4 pb-2"><p class="text-[11px] font-bold uppercase tracking-widest text-purple-300">Design gráfico</p>
+            <h3 class="font-heading text-lg font-bold text-white mt-1">Identidade — Café Aurora</h3></div>
+          </article>
+          <article class="work glass-card rounded-3xl p-4" data-cat="web">
+            <div class="thumb" style="--a:#6366f1;--b:#22d3ee"><span>Ui</span></div>
+            <div class="px-2 pt-4 pb-2"><p class="text-[11px] font-bold uppercase tracking-widest text-purple-300">Web & UI/UX</p>
+            <h3 class="font-heading text-lg font-bold text-white mt-1">Landing — Clínica Vita</h3></div>
+          </article>
+          <article class="work glass-card rounded-3xl p-4" data-cat="video">
+            <div class="thumb" style="--a:#ec4899;--b:#f59e0b"><span>▶</span></div>
+            <div class="px-2 pt-4 pb-2"><p class="text-[11px] font-bold uppercase tracking-widest text-purple-300">Vídeo</p>
+            <h3 class="font-heading text-lg font-bold text-white mt-1">Reels — Studio Forma</h3></div>
+          </article>
+          <article class="work glass-card rounded-3xl p-4" data-cat="social">
+            <div class="thumb" style="--a:#8b5cf6;--b:#f472b6"><span>@</span></div>
+            <div class="px-2 pt-4 pb-2"><p class="text-[11px] font-bold uppercase tracking-widest text-purple-300">Social media</p>
+            <h3 class="font-heading text-lg font-bold text-white mt-1">Pack mensal — Bella Moda</h3></div>
+          </article>
+          <article class="work glass-card rounded-3xl p-4" data-cat="design">
+            <div class="thumb" style="--a:#06b6d4;--b:#a855f7"><span>62</span></div>
+            <div class="px-2 pt-4 pb-2"><p class="text-[11px] font-bold uppercase tracking-widest text-purple-300">Design gráfico</p>
+            <h3 class="font-heading text-lg font-bold text-white mt-1">Rebranding — Oficina 62</h3></div>
+          </article>
+          <article class="work glass-card rounded-3xl p-4" data-cat="video">
+            <div class="thumb" style="--a:#f43f5e;--b:#8b5cf6"><span>4K</span></div>
+            <div class="px-2 pt-4 pb-2"><p class="text-[11px] font-bold uppercase tracking-widest text-purple-300">Vídeo</p>
+            <h3 class="font-heading text-lg font-bold text-white mt-1">Institucional — Prime Log</h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS SECTION -->
+    <section id="diferenciais" class="py-24 section-divider reveal">
+      <div class="max-w-5xl mx-auto px-5 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <h2 class="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            Por que escolher o <span class="text-gradient-glow">SEU Studio</span>
+          </h2>
+          <p class="mt-3 sm:mt-4 text-base sm:text-lg text-slate-400">Menos burocracia, mais entrega no prazo.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <article class="glass-card rounded-3xl p-8">
+            <span class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 text-purple-300 flex items-center justify-center mb-6 shadow-inner">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </span>
+            <h3 class="font-heading text-xl font-bold text-white">Tudo em um só lugar</h3>
+            <p class="mt-2 text-slate-400 text-sm leading-relaxed">Design, vídeo, site e redes com a mesma equipe e o mesmo padrão visual.</p>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8">
+            <span class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 text-purple-300 flex items-center justify-center mb-6 shadow-inner">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </span>
+            <h3 class="font-heading text-xl font-bold text-white">Prazos combinados</h3>
+            <p class="mt-2 text-slate-400 text-sm leading-relaxed">Do briefing à entrega, você sabe o que acontece em cada etapa.</p>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8">
+            <span class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 text-purple-300 flex items-center justify-center mb-6 shadow-inner">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </span>
+            <h3 class="font-heading text-xl font-bold text-white">Acessibilidade</h3>
+            <p class="mt-2 text-slate-400 text-sm leading-relaxed">Acompanhamento em cada etapa para ajustes nos processos da empresa.</p>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8">
+            <span class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 text-purple-300 flex items-center justify-center mb-6 shadow-inner">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 010 7.75"/></svg>
+            </span>
+            <h3 class="font-heading text-xl font-bold text-white">Como um time interno</h3>
+            <p class="mt-2 text-slate-400 text-sm leading-relaxed">Se sua demanda crescer, nossa equipe assume a função do designer. Só jogar na nossa mão.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS SECTION -->
+    <section id="depoimentos" class="py-24 section-divider reveal">
+      <div class="max-w-5xl mx-auto px-5 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <h2 class="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            Quem já trabalhou <span class="text-gradient-glow">com a gente</span>
+          </h2>
+          <p class="mt-3 sm:mt-4 text-base sm:text-lg text-slate-400">Resultados contados por clientes.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+            <div>
+              <span class="text-amber-400 tracking-widest text-lg" aria-label="5 estrelas">★★★★★</span>
+              <p class="text-slate-200 mt-4 leading-relaxed text-sm">“carlos: a entrega foi rápida e o cardápio novo aumentou os pedidos.”</p>
+            </div>
+            <div class="flex items-center gap-3 mt-8 pt-4 border-t border-white/10">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-rose-500 to-rose-400 flex items-center justify-center font-bold text-white text-sm shadow-md">RC</span>
+              <div>
+                <b class="block text-sm text-white">Carlos Santos</b>
+                <span class="text-xs text-slate-400">Restaurante</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+            <div>
+              <span class="text-amber-400 tracking-widest text-lg" aria-label="5 estrelas">★★★★★</span>
+              <p class="text-slate-200 mt-4 leading-relaxed text-sm">“Depoimento de exemplo: as artes do mês chegam prontas e no padrão da nossa marca.”</p>
+            </div>
+            <div class="flex items-center gap-3 mt-8 pt-4 border-t border-white/10">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-sky-500 to-sky-400 flex items-center justify-center font-bold text-white text-sm shadow-md">CL</span>
+              <div>
+                <b class="block text-sm text-white">Rodrigo pé de rato</b>
+                <span class="text-xs text-slate-400">Clínica</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+            <div>
+              <span class="text-amber-400 tracking-widest text-lg" aria-label="5 estrelas">★★★★★</span>
+              <p class="text-slate-200 mt-4 leading-relaxed text-sm">“Depoimento de exemplo: o site novo deixou nosso contato muito mais fácil de achar.”</p>
+            </div>
+            <div class="flex items-center gap-3 mt-8 pt-4 border-t border-white/10">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-400 flex items-center justify-center font-bold text-white text-sm shadow-md">AU</span>
+              <div>
+                <b class="block text-sm text-white">BK</b>
+                <span class="text-xs text-slate-400">Autônomo</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+            <div>
+              <span class="text-amber-400 tracking-widest text-lg" aria-label="5 estrelas">★★★★★</span>
+              <p class="text-slate-200 mt-4 leading-relaxed text-sm">“Depoimento de exemplo: os vídeos curtos melhoraram muito nosso alcance nas redes.”</p>
+            </div>
+            <div class="flex items-center gap-3 mt-8 pt-4 border-t border-white/10">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-400 flex items-center justify-center font-bold text-white text-sm shadow-md">LJ</span>
+              <div>
+                <b class="block text-sm text-white">Santos</b>
+                <span class="text-xs text-slate-400">Loja</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-8">Depoimentos reais dos clientes.</p>
+      </div>
+    </section>
+
+    <!-- PROCESSO SECTION -->
+    <section id="processo" class="proc py-24 section-divider reveal">
+      <div class="proc-wrap">
+        <div class="proc-head">
+          <span class="proc-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>Transparência de ponta a ponta</span>
+          <h2 class="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            Como transformamos sua ideia em <span class="text-gradient-glow">realidade</span>
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-400">
+            Do primeiro contato ao produto finalizado: conheça o nosso fluxo de trabalho desenhado para garantir precisão, qualidade e aprovação em cada detalhe.
+          </p>
+        </div>
+
+        <div class="proc-stepper" role="tablist" aria-label="Etapas do processo">
+          <div class="proc-track"></div><div class="proc-fill" id="procFill"></div>
+          <div class="proc-nodes">
+            <button type="button" class="proc-node is-active" data-step="0" style="--c:#a855f7" role="tab"><span class="proc-dot">01</span><span>Pedido</span></button>
+            <button type="button" class="proc-node" data-step="1" style="--c:#6366f1" role="tab"><span class="proc-dot">02</span><span>Arte & Design</span></button>
+            <button type="button" class="proc-node" data-step="2" style="--c:#ec4899" role="tab"><span class="proc-dot">03</span><span>Aprovação</span></button>
+            <button type="button" class="proc-node" data-step="3" style="--c:#34d399" role="tab"><span class="proc-dot">04</span><span>Produção</span></button>
+          </div>
+        </div>
+
+        <div class="proc-cards">
+          <div class="proc-card glass-card is-active" data-step="0" role="button" tabindex="0" style="--c:#a855f7">
+            <span class="proc-corner"></span>
+            <div class="proc-card-top"><span class="proc-icon proc-tint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span><span class="proc-step-n">PASSO 01</span></div>
+            <h3>Pedido & Alinhamento</h3><p>Recebemos as especificações do seu projeto e alinhamos todos os requisitos essenciais (prazos, materiais e objetivos).</p>
+            <div class="proc-card-foot"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Briefing alinhado</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+          </div>
+          <div class="proc-card glass-card" data-step="1" role="button" tabindex="0" style="--c:#6366f1">
+            <span class="proc-corner"></span>
+            <div class="proc-card-top"><span class="proc-icon proc-tint"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span><span class="proc-step-n">PASSO 02</span></div>
+            <h3>Desenvolvimento da Arte</h3><p>Nossa equipe transforma suas ideias em conceitos visuais de alto impacto, adaptando o design para os padrões técnicos do produto.</p>
+            <div class="proc-card-foot"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Design Exclusivo</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+          </div>
+          <div class="proc-card glass-card" data-step="2" role="button" tabindex="0" style="--c:#ec4899">
+            <span class="proc-corner"></span>
+            <div class="proc-card-top"><span class="proc-icon proc-tint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="proc-step-n">PASSO 03</span></div>
+            <h3>Aprovação do Cliente</h3><p>Enviamos uma simulação virtual/mockup detalhado para sua revisão. Nada entra em produção sem o seu OK definitivo.</p>
+            <div class="proc-card-foot"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Validação 100%</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+          </div>
+          <div class="proc-card glass-card" data-step="3" role="button" tabindex="0" style="--c:#34d399">
+            <span class="proc-corner"></span>
+            <div class="proc-card-top"><span class="proc-icon proc-tint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 16 2 2 4-4"/><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="M7.5 4.27l9 5.15"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg></span><span class="proc-step-n">PASSO 04</span></div>
+            <h3>Produção & Finalização</h3><p>Com a arte aprovada, executamos o acabamento, controle rigoroso de qualidade e preparamos para envio seguro.</p>
+            <div class="proc-card-foot"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Entrega Premium</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+          </div>
+        </div>
+
+        <div class="proc-detail glass-panel" id="procDetail" style="--c:#a855f7" aria-live="polite">
+          <div id="procText">
+            <span class="proc-detail-tag" id="procBadge"></span>
+            <h3 id="procTitle"></h3><p id="procDesc"></p>
+            <div class="proc-list" id="procList"></div>
+          </div>
+          <div class="proc-visual">
+            <span class="proc-icon proc-tint" id="procIcon"></span>
+            <h4 id="procStatus"></h4><small id="procSub"></small>
+          </div>
+        </div>
+
+        <div class="proc-why">
+          <div class="proc-head proc-head-sm">
+            <h3 class="proc-why-title">Por que nosso processo funciona?</h3>
+            <p class="mt-4 text-base sm:text-lg text-slate-400">Construímos uma metodologia que elimina erros comuns de produção e proporciona previsibilidade absoluta para sua marca.</p>
+          </div>
+          <div class="proc-why-grid">
+            <div class="glass-card" style="--c:#a855f7"><span class="proc-icon proc-tint"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><h4>Rastreabilidade em Tempo Real</h4><p>Acompanhe em qual fase do processo de arte ou fabricação seu pedido se encontra, sem mistérios ou surpresas de prazo.</p></div>
+            <div class="glass-card" style="--c:#ec4899"><span class="proc-icon proc-tint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><h4>Revisões Descomplicadas</h4><p>Processo ágil e transparente para ajustes na arte gráfica, garantindo que a peça saia exatamente como imaginada.</p></div>
+            <div class="glass-card" style="--c:#6366f1"><span class="proc-icon proc-tint"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></span><h4>Padrão Técnico Rigoroso</h4><p>Conferência minuciosa de perfis de cor, sangrias, resolução e provas de impressão antes da liberação final para máquinas.</p></div>
+          </div>
+        </div>
+
+        <div class="proc-cta glass-panel">
+          <h3>Tem um projeto em mente?<br class="hidden sm:inline"> <span class="text-gradient-glow">Vamos dar o primeiro passo juntos.</span></h3>
+          <p>Nossa equipe está pronta para criar e produzir a solução perfeita com o mais alto padrão estético e de acabamento.</p>
+          <div class="proc-cta-btns">
+            <a href="#contato" class="btn-gradient shadow-xl shadow-purple-600/30"><span>Solicitar orçamento</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <a href="https://wa.me/556294847384?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20processo%20do%20SEU%20Studio." target="_blank" rel="noopener" class="proc-ghost glass-card">Tirar dúvidas no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO SECTION -->
+    <section id="contato" class="py-24 section-divider reveal">
+      <div class="max-w-5xl mx-auto px-5 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <h2 class="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            Vamos organizar o design <span class="text-gradient-glow">da sua empresa?</span>
+          </h2>
+          <p class="mt-3 sm:mt-4 text-base sm:text-lg text-slate-400">
+            Conte o que você precisa e receba um orçamento. Comece com um pacote teste.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 mb-12">
+          <article class="glass-card rounded-3xl p-6">
+            <span class="w-10 h-10 rounded-xl btn-gradient text-white font-bold flex items-center justify-center mb-4 shadow-lg shadow-purple-500/30">1</span>
+            <h3 class="font-heading font-bold text-white text-lg">Briefing</h3>
+            <p class="mt-1 text-sm text-slate-400">Você conta o que precisa.</p>
+          </article>
+
+          <article class="glass-card rounded-3xl p-6">
+            <span class="w-10 h-10 rounded-xl btn-gradient text-white font-bold flex items-center justify-center mb-4 shadow-lg shadow-purple-500/30">2</span>
+            <h3 class="font-heading font-bold text-white text-lg">Orçamento</h3>
+            <p class="mt-1 text-sm text-slate-400">Você recebe o valor, aprova e faz o pagamento.</p>
+          </article>
+
+          <article class="glass-card rounded-3xl p-6">
+            <span class="w-10 h-10 rounded-xl btn-gradient text-white font-bold flex items-center justify-center mb-4 shadow-lg shadow-purple-500/30">3</span>
+            <h3 class="font-heading font-bold text-white text-lg">Entrega</h3>
+            <p class="mt-1 text-sm text-slate-400">Combinamos prazos, revisões e a organização dos arquivos.</p>
+          </article>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-6 sm:p-12 border border-white/15 shadow-2xl">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <a 
+              href="https://wa.me/556294847384?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20SEU%20Studio%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento." 
+              target="_blank" 
+              rel="noopener" 
+              class="glass-card rounded-2xl p-6 hover:border-emerald-400/50 transition-colors flex flex-col justify-between"
+            >
+              <span class="text-emerald-400">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 00-8.5 14.9L2 22l5.25-1.38A9.93 9.93 0 1012.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.1-1.9-.12a17 17 0 01-1.72-.64c-3.03-1.3-5-4.35-5.15-4.55-.15-.2-1.23-1.63-1.23-3.1 0-1.48.77-2.2 1.05-2.5.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.5.25.6.85 2.08.92 2.23.08.15.12.33.02.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.5-.15.15-.3.3-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.65-.07.17-.2.75-.88.95-1.18.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg>
+              </span>
+              <div class="mt-4">
+                <b class="block text-white text-lg font-heading">WhatsApp</b>
+                <span class="text-slate-400 text-sm">+55 62 9484-7384</span>
+              </div>
+            </a>
+
+            <a 
+              href="mailto:seustudiosvg@gmail.com?subject=Or%C3%A7amento%20-%20SEU%20Studio" 
+              class="glass-card rounded-2xl p-6 hover:border-purple-400/50 transition-colors flex flex-col justify-between"
+            >
+              <span class="text-purple-300">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              </span>
+              <div class="mt-4">
+                <b class="block text-white text-lg font-heading">E-mail</b>
+                <span class="text-slate-400 text-sm break-all">seustudiosvg@gmail.com</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="https://wa.me/556294847384?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20SEU%20Studio%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento." 
+              target="_blank" 
+              rel="noopener" 
+              class="btn-gradient inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-full font-bold text-white shadow-xl shadow-purple-600/30"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 00-8.5 14.9L2 22l5.25-1.38A9.93 9.93 0 1012.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.1-1.9-.12a17 17 0 01-1.72-.64c-3.03-1.3-5-4.35-5.15-4.55-.15-.2-1.23-1.63-1.23-3.1 0-1.48.77-2.2 1.05-2.5.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.5.25.6.85 2.08.92 2.23.08.15.12.33.02.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.5-.15.15-.3.3-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.65-.07.17-.2.75-.88.95-1.18.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg> 
+              Chamar no WhatsApp
+            </a>
+
+            <a 
+              href="mailto:seustudiosvg@gmail.com?subject=Or%C3%A7amento%20-%20SEU%20Studio" 
+              class="glass-card inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-slate-200 border border-white/10 hover:bg-white/10 transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> 
+              Enviar e-mail
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
 
   <!-- FOOTER -->
   <footer class="border-t border-white/10 py-8 text-center text-xs text-slate-500 relative z-10">
@@ -245,7 +698,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT -->
-  <script src="./js/main.js"></script>
+  <!-- MOBILE MENU SCRIPT -->
+  <script src="js/main.js"></script>
 </body>
 </html>
