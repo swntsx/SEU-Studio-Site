@@ -2,6 +2,29 @@ document.documentElement.classList.add('js');
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
+/* ---------- Lenis Smooth Scroll (Inercial & Bastante Suave) ---------- */
+try {
+  const lenis = new Lenis({
+    duration: 1.5, // Duração da inércia (aumentada para deixar bem suave)
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva suave tipo "manteiga"
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 1.1,
+    smoothTouch: false, // Mantém nativo em celulares para não travar a performance touch
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+} catch (e) {
+  console.log('Lenis não carregado:', e);
+}
+
 /* ---------- Menu lateral (drawer) ---------- */
 const menuBtn = $('#menuBtn'), drawer = $('#mobileMenu'), overlay = $('#drawerOverlay');
 const icoOpen = $('#icoOpen'), icoClose = $('#icoClose');
@@ -246,23 +269,3 @@ chips.forEach(chip => chip.addEventListener('click', () => {
 
   select(0);
 })();
-
-const lenis = new Lenis({
-  duration: 1.2, // Duração da rolagem (quanto maior, mais suave/lento)
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva de aceleração
-  direction: 'vertical', // Direção da rolagem
-  gestureDirection: 'vertical',
-  smooth: true,
-  mouseMultiplier: 1,
-  smoothTouch: false, // Desligar em mobile geralmente melhora a performance
-  touchMultiplier: 2,
-  infinite: false,
-})
-
-// Função de loop de animação (RequestAnimationFrame)
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
-
-requestAnimationFrame(raf)
